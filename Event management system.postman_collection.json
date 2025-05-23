@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "d73c1375-57dd-419a-b480-c5c6f2fc1325",
+		"name": "Event management system",
+		"description": "_API collection for the Django Event Management System deployed on Render._",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29114517"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"adityapowar321\",\r\n  \"email\": \"aditya321@gmail.com\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/auth/login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"adityapowar321\",\r\n  \"password\": \"12345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/events/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Birthday Party\",\r\n  \"description\": \"Weekly sync with team\",\r\n  \"start_time\": \"2025-05-23T10:00:00Z\",\r\n  \"end_time\": \"2025-05-23T11:00:00Z\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"WEEKLY\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/events/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Birthday Party\",\r\n  \"description\": \"Weekly sync with team\",\r\n  \"start_time\": \"2025-05-23T10:00:00Z\",\r\n  \"end_time\": \"2025-05-23T11:00:00Z\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"WEEKLY\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/list",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/events/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"class meeting\",\r\n  \"description\": \"Weekly sync with team\",\r\n  \"start_time\": \"2025-05-23T03:00:00Z\",\r\n  \"end_time\": \"2025-05-23T05:00:00Z\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"WEEKLY\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/16/update/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"16",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/events/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"class meeting\",\r\n  \"description\": \"Weekly sync with team\",\r\n  \"start_time\": \"2025-05-23T03:00:00Z\",\r\n  \"end_time\": \"2025-05-23T05:00:00Z\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"WEEKLY\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events/17/delete/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events",
+						"17",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/events/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/collaboration/16/share",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"collaboration",
+						"16",
+						"share"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/collaboration/16/permissions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\": 5,\r\n  \"role\": \"viewer\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/collaboration/16/permissions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"collaboration",
+						"16",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/collaboration/15/permissions/5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"role\": \"viewer\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/collaboration/15/permissions/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"collaboration",
+						"15",
+						"permissions",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/collaboration/15/permissions/5/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/collaboration/15/permissions/5/delete",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"collaboration",
+						"15",
+						"permissions",
+						"5",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/api/versioning/16/changelog",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ4MDc4OTM5LCJpYXQiOjE3NDc5OTI1MzksImp0aSI6IjQyMDEyY2MzYjE5ODQ3MTlhNjZkMjljY2VhM2I4MWYxIiwidXNlcl9pZCI6NX0.rOXy2sj6JmRtCpdoWnu-GYazDug-rgXN87_0ZJFmPN8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"role\": \"viewer\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/versioning/16/changelog",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"versioning",
+						"16",
+						"changelog"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
