@@ -5,10 +5,12 @@ from .serializers import RegisterSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import CustomTokenObtainPairSerializer
+from rest_framework.permissions import AllowAny
 
 class RegisterView(APIView):
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
+        permission_classes = [AllowAny]
         if serializer.is_valid():
             user = serializer.save()
             refresh = RefreshToken.for_user(user)
