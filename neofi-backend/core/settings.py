@@ -176,5 +176,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # For production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# ALLOWED_HOSTS = ['neofi-backend.onrender.com']
 
+import os
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
