@@ -19,7 +19,6 @@ class ShareEventView(APIView):
     def post(self, request, id):
         event = get_object_or_404(Event, id=id)
 
-        # Only owner can share
         if not event.permissions.filter(user=request.user, role='owner').exists():
             return Response({"detail": "Only owners can share this event."}, status=403)
 
@@ -36,7 +35,6 @@ class EventPermissionsListView(APIView):
     def get(self, request, id):
         event = get_object_or_404(Event, id=id)
 
-        # Check if requesting user has access
         if not event.permissions.filter(user=request.user).exists():
             return Response({"detail": "Access denied."}, status=403)
 
@@ -51,12 +49,10 @@ class UpdateEventPermissionView(APIView):
     def put(self, request, id, userId):
         event = get_object_or_404(Event, id=id)
 
-        # Ensure only the owner can update roles
         owner_permission = EventPermission.objects.filter(event=event, user=request.user, role='owner').first()
         if not owner_permission:
             return Response({"detail": "Only the owner can update roles."}, status=403)
 
-        # Get the target permission object
         target_user = get_object_or_404(User, id=userId)
 
         try:
@@ -73,16 +69,11 @@ class UpdateEventPermissionView(APIView):
 
         return Response({"detail": f"Role updated to '{new_role}' for user {target_user.username}."})
 
-
-
-
 class EventPermissionDeleteView(APIView):
     permission_classes = [IsAuthenticated]
 
     def delete(self, request, id, userId):
         event = get_object_or_404(Event, id=id)
-
-        # Only owner can remove permissions
         if not EventPermission.objects.filter(event=event, user=request.user, role='owner').exists():
             return Response({'detail': 'Only the event owner can remove permissions.'}, status=status.HTTP_403_FORBIDDEN)
 

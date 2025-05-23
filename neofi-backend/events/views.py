@@ -14,7 +14,7 @@ from .pagination import CustomPagination
 from .permissions import HasEventPermission
 
 
-# Create a new event (POST)
+# Create a new event 
 class EventCreateView(generics.CreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
@@ -76,23 +76,6 @@ class EventUpdateView(generics.UpdateAPIView):
 
         return super().update(request, *args, **kwargs)
 
-# class EventUpdateView(generics.UpdateAPIView):
-#     queryset = Event.objects.all()
-#     serializer_class = EventSerializer
-#     permission_classes = [permissions.IsAuthenticated]
-
-#     def get_object(self):
-#         event = get_object_or_404(Event, pk=self.kwargs['pk'])
-#         try:
-#             permission = EventPermission.objects.get(event=event, user=self.request.user)
-#         except EventPermission.DoesNotExist:
-#             raise PermissionDenied("You do not have permission to update this event.")
-
-#         if permission.role not in ['owner', 'editor']:
-#             raise PermissionDenied("You must be an owner or editor to update this event.")
-
-#         return event
-
 class EventDeleteView(generics.DestroyAPIView):
     queryset = Event.objects.all()
     permission_classes = [permissions.IsAuthenticated]
@@ -109,7 +92,6 @@ class EventDeleteView(generics.DestroyAPIView):
             raise PermissionDenied("Only the owner can delete this event.")
 
         return event
-
 
 
 class BatchEventCreateView(APIView):

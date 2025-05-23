@@ -8,9 +8,9 @@ from .serializers import CustomTokenObtainPairSerializer
 from rest_framework.permissions import AllowAny
 
 class RegisterView(APIView):
+    permission_classes = [AllowAny]
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
-        permission_classes = [AllowAny]
         if serializer.is_valid():
             user = serializer.save()
             refresh = RefreshToken.for_user(user)

@@ -46,16 +46,12 @@ class EventChangeLogView(APIView):
 class EventVersionDiffView(APIView):
     def get(self, request, id, versionId1, versionId2):
         event = get_object_or_404(Event, pk=id)
-
-        # Fetch both versions
         version1 = get_object_or_404(EventVersion, event=event, version_number=versionId1)
         version2 = get_object_or_404(EventVersion, event=event, version_number=versionId2)
 
-        # Convert to dicts
         v1_data = EventVersionSerializer(version1).data
         v2_data = EventVersionSerializer(version2).data
 
-        # Compute differences
         diff = {}
         for field in v1_data:
             if v1_data[field] != v2_data[field]:
